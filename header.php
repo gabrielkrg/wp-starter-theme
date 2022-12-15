@@ -18,6 +18,9 @@
 <body>
 
 	<main id="main" class="pt-large">
-		<nav id="navbar">
+		<header id="header">
+			<nav id="navbar">
+			</nav>
 
-		</nav>
+			<?php get_search_form(); ?>
+		</header>
