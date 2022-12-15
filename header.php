@@ -15,7 +15,7 @@
 
 </head>
 
-<body data-siteurl="<?php echo get_site_url() ?>" data-analytics="">
+<body>
 
 	<main id="main" class="pt-large">
 		<nav id="navbar">

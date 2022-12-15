@@ -1,9 +1,13 @@
-<?php get_header();
+<?php get_header(); ?>
 
-if (!wp_is_mobile()) {
-    get_template_part('partials/desktop/archive', get_post_format());
-} else {
-    get_template_part('partials/mobile/archive', get_post_format());
-}
+<section id="archive">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12">
 
-get_footer();
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php get_footer();

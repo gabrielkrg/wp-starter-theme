@@ -1,17 +1,13 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since Twenty Nineteen 1.0
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<section id="default">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12">
+                
+            </div>
+        </div>
+    </div>
+</section>
 
-
-<?php
-get_footer();
+<?php get_footer();

@@ -6,7 +6,7 @@ const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 
 function styles() {
-	return gulp.src('./assets/sass/**/*.scss')
+	return gulp.src('./assets/scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(rename({
 			suffix: '.min'
@@ -23,7 +23,7 @@ function scripts() {
 }
 
 function watch() {
-	gulp.watch('./assets/sass/**/*.scss', gulp.series('styles'));
+	gulp.watch('./assets/scss/**/*.scss', gulp.series('styles'));
 	gulp.watch('./assets/js/**/*.js', gulp.series('scripts'));
 };
 
