@@ -9,7 +9,12 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 
 /**
- * Thumbnail
+ * Thumbnail support
+ */
+add_theme_support('post-thumbnails');
+
+/**
+ * Custom thumbnail sizes
  */
 add_image_size('default', 768, 330, true);
 
@@ -17,16 +22,17 @@ add_image_size('default', 768, 330, true);
 /**
  * Remove acentos no Namespace
  */
+add_filter('sanitize_file_name', 'sa_sanitize_spanish_chars', 10);
 function sa_sanitize_spanish_chars($filename)
 {
     return remove_accents($filename);
 }
-add_filter('sanitize_file_name', 'sa_sanitize_spanish_chars', 10);
 
 
 /**
  * Filtro de busca
  */
+add_filter('pre_get_posts', 'search_filter');
 function search_filter($query)
 {
     if (!is_admin()) {
@@ -36,21 +42,21 @@ function search_filter($query)
         return $query;
     }
 }
-add_filter('pre_get_posts', 'search_filter');
 
 /**
  * Remove h2 do pagination
  */
+add_action('navigation_markup_template', 'sanitize_pagination');
 function sanitize_pagination($content)
 {
     $content = preg_replace('#<h2.*?>(.*?)<\/h2>#si', '', $content);
     return $content;
 }
-add_action('navigation_markup_template', 'sanitize_pagination');
 
 /**
  * Altera a função wp_title()
  */
+add_filter('wp_title', 'wpdocs_filter_wp_title', 10, 2);
 function wpdocs_filter_wp_title($title, $sep)
 {
     global $paged, $page;
@@ -72,22 +78,21 @@ function wpdocs_filter_wp_title($title, $sep)
 
     return $title;
 }
-add_filter('wp_title', 'wpdocs_filter_wp_title', 10, 2);
 
 /**
  * Altera quantidade de caracteres do excerpt
  */
+add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
 function wpdocs_custom_excerpt_length($length)
 {
     return 30;
 }
-add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
 
 /**
  * Ellipsis no excerpt
  */
+add_filter('excerpt_more', 'new_excerpt_more');
 function new_excerpt_more($more)
 {
     return '...';
 }
-add_filter('excerpt_more', 'new_excerpt_more');
