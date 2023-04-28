@@ -14,6 +14,15 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 add_theme_support('post-thumbnails');
 
 /**
+ * Ativa editor de menu no painel
+ */
+function wpb_custom_new_menu()
+{
+    register_nav_menu('my-custom-menu', __('My Custom Menu'));
+}
+add_action('init', 'wpb_custom_new_menu');
+
+/**
  * Custom thumbnail sizes
  */
 add_image_size('default', 768, 330, true);
