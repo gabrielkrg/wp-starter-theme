@@ -14,18 +14,51 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 add_theme_support('post-thumbnails');
 
 /**
- * Ativa editor de menu no painel
+ * Register a custom image size
  */
-function wpb_custom_new_menu()
+add_action('after_setup_theme', 'custom_theme_add_custom_image_size');
+function custom_theme_add_custom_image_size()
 {
-    register_nav_menu('my-custom-menu', __('My Custom Menu'));
+    add_image_size('custom-size', 300, 200, true); // Adjust width, height, and crop parameters as needed
 }
-add_action('init', 'wpb_custom_new_menu');
 
 /**
- * Custom thumbnail sizes
+ * Register multiple menus
  */
-add_image_size('default', 768, 330, true);
+add_action('after_setup_theme', 'custom_theme_register_menus');
+function custom_theme_register_menus()
+{
+    register_nav_menus(
+        array(
+            'primary_menu'   => esc_html__('Primary Menu', 'custom-theme'),
+            'secondary_menu' => esc_html__('Secondary Menu', 'custom-theme'),
+            'footer_menu'    => esc_html__('Footer Menu', 'custom-theme'),
+            // Add more menus as needed
+        )
+    );
+}
+
+/**
+ * Register custom scripts
+ */
+add_action('wp_enqueue_scripts', 'custom_theme_register_scripts');
+function custom_theme_register_scripts()
+{
+    $ver = '1.0';
+
+    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), $ver, true);
+}
+
+/**
+ * Register custom styles
+ */
+add_action('wp_enqueue_scripts', 'custom_theme_register_styles');
+function custom_theme_register_styles()
+{
+    $ver = '1.0';
+
+    wp_enqueue_style('custom-styles', get_template_directory_uri() . '/css/styles.min.css', array(), $ver);
+}
 
 
 /**
@@ -40,22 +73,4 @@ function search_filter($query)
         }
         return $query;
     }
-}
-
-/**
- * Altera quantidade de caracteres do excerpt
- */
-add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
-function wpdocs_custom_excerpt_length($length)
-{
-    return 30;
-}
-
-/**
- * Ellipsis no excerpt
- */
-add_filter('excerpt_more', 'new_excerpt_more');
-function new_excerpt_more($more)
-{
-    return '...';
 }

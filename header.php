@@ -10,7 +10,6 @@
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri() ?>/favicon.png" type="image/x-icon">
 	<link rel="icon" href="<?php echo get_template_directory_uri() ?>/favicon.png" type="image/x-icon">
 
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/style.min.css">
 	<?php wp_head(); ?>
 
 </head>
@@ -20,7 +19,6 @@
 	<main id="main" class="pt-large">
 		<header id="header">
 			<nav id="navbar">
-			</nav>
 
-			<?php get_search_form(); ?>
+			</nav>
 		</header>

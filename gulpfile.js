@@ -18,7 +18,7 @@ function scripts() {
 	return gulp.src('./assets/js/**/*.js', { sourcemaps: true })
 		.pipe(babel())
 		.pipe(uglify())
-		.pipe(concat('main.min.js'))
+		.pipe(concat('scripts.min.js'))
 		.pipe(gulp.dest('./js'));
 }
 
