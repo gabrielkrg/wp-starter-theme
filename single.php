@@ -56,9 +56,9 @@ $post_id = get_the_ID();
                     <?php the_excerpt(); ?>
                 </p>
 
-                <div>
+                <article>
                     <?php the_content(); ?>
-                </div>
+                </article>
 
                 <div>
                     <p>Tags</p>
