@@ -7,9 +7,6 @@
 	<!-- <meta name="theme-color" content="#2b82bf"> -->
 	<meta charset="<?php bloginfo('charset'); ?>">
 
-	<link rel="shortcut icon" href="<?php echo get_template_directory_uri() ?>/favicon.png" type="image/x-icon">
-	<link rel="icon" href="<?php echo get_template_directory_uri() ?>/favicon.png" type="image/x-icon">
-
 	<?php wp_head(); ?>
 
 </head>
