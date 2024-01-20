@@ -6,9 +6,13 @@
 @import "global";
 
 //Application
-@import "custom";
-
 @import "header";
 @import "footer";
 
-// Pages
+@import "home";
+@import "single";
+@import "archive";
+@import "author";
+@import "search";
+
+@import "custom";
