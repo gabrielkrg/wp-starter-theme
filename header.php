@@ -40,31 +40,37 @@
 				<div class="bottom">
 					<div class="container">
 						<div class="row">
-							<?php
+							<div class="col-md-12">
+								<?php
 
-							$args = [
-								'theme_location' => 'primary_menu',
-							];
+								$args = [
+									'theme_location' => 'primary_menu',
+								];
 
-							wp_nav_menu($args);
+								wp_nav_menu($args);
 
-							?>
+								?>
+							</div>
 						</div>
 					</div>
 				</div>
 			</nav>
-
-			<?php get_search_form(); ?>
-
-			<div id="side-menu">
-				<?php
-
-				$args = [
-					'theme_location' => 'secondary_menu',
-				];
-
-				wp_nav_menu($args);
-
-				?>
-			</div>
 		</header>
+
+		<div id="side-menu">
+			<?php
+
+			$args = [
+				'theme_location' => 'secondary_menu',
+			];
+
+			wp_nav_menu($args);
+
+			?>
+		</div>
+
+		<div id="layer"></div>
+
+		<div id="search-content">
+			<?php get_search_form(); ?>
+		</div>

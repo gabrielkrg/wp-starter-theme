@@ -9,7 +9,7 @@ $author_description = get_the_author_meta('description', $author_id);
 $author_image = get_avatar($author_id, 100);
 ?>
 
-<section id="author">
+<section id="author" class="py-4">
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">

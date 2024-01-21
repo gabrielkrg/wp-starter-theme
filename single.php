@@ -39,6 +39,10 @@ $post_id = get_the_ID();
                     <?php the_title(); ?>
                 </h1>
 
+                <div>
+                    <?= the_post_thumbnail('custom-size') ?>
+                </div>
+
                 <?php
 
                 $post_author_id = get_post_field('post_author', $post_id);
@@ -51,6 +55,7 @@ $post_id = get_the_ID();
                         <?= $author->display_name; ?>
                     </a>
                 </p>
+
 
                 <p>
                     <?php the_excerpt(); ?>
