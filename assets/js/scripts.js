@@ -62,7 +62,7 @@ function menuControls() {
 }
 menuControls();
 
-// Function to add padding top main of the size of the fixed menu
+// Function to add padding top main of the size of the fixed hedaer
 function marginMain() {
     let header = document.querySelector("#header");
     var headerHeight = header.clientHeight;
