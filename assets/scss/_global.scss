@@ -18,6 +18,10 @@ body {
   overflow: hidden;
 }
 
+#close {
+  cursor: pointer;
+}
+
 #layer {
   background: rgba(255, 255, 255, .7);
   backdrop-filter: blur(6px);
@@ -28,4 +32,33 @@ body {
   left: 0;
   display: none;
   z-index: 1;
+}
+
+#side-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: $white;
+  z-index: 3;
+
+  ul {
+    li {
+      a {}
+    }
+  }
+}
+
+#search-content {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 100%;
+  z-index: 2;
 }

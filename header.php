@@ -58,6 +58,7 @@
 		</header>
 
 		<div id="side-menu">
+			<div id="close">fechar</div>
 			<?php
 
 			$args = [
@@ -72,5 +73,6 @@
 		<div id="layer"></div>
 
 		<div id="search-content">
+			<div id="close">fechar</div>
 			<?php get_search_form(); ?>
 		</div>

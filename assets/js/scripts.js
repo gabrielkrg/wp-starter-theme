@@ -9,6 +9,8 @@ function menuControls() {
     var search = document.querySelector("#search");
     var searchContent = document.querySelector("#search-content");
 
+    var closeControls = document.querySelectorAll("#close");
+
     // click on layer
     if (layer) {
         layer.addEventListener('click', function () {
@@ -16,6 +18,18 @@ function menuControls() {
             sideMenu.classList.remove('d-block');
             layer.classList.remove('d-block');
             searchContent.classList.remove('d-block');
+        });
+    }
+
+    // click on close
+    if (closeControls) {
+        closeControls.forEach(element => {
+            element.addEventListener('click', function () {
+                body.classList.remove('overflow-hidden');
+                sideMenu.classList.remove('d-block');
+                layer.classList.remove('d-block');
+                searchContent.classList.remove('d-block');
+            });
         });
     }
 
