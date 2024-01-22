@@ -19,7 +19,7 @@ add_theme_support('post-thumbnails');
 add_action('after_setup_theme', 'custom_theme_add_custom_image_size');
 function custom_theme_add_custom_image_size()
 {
-    add_image_size('custom-size', 350, 200, true); // Adjust width, height, and crop parameters as needed
+    add_image_size('custom-size', 350, 230, true); // Adjust width, height, and crop parameters as needed
     add_image_size('large-post-thumbnail', 850, 400, true); // Adjust width, height, and crop parameters as needed
 }
 

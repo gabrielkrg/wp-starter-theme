@@ -13,31 +13,7 @@ $post_id = get_the_ID();
         <div class="row justify-content-center mb-5">
             <div class="col-md-9">
 
-                <?php
 
-                $categories = get_the_category();
-
-                if ($categories) { ?>
-                    <!-- categorias -->
-                    <div class="categories">
-                        <p>Categorias</p>
-
-                        <div class="content">
-                            <?php foreach ($categories as $cat) {
-                                // var_dump($cat);
-
-                                $id = $cat->term_id;
-                                $name = $cat->name;
-                                $link = get_category_link($id);
-
-                                echo '<a href="' . $link . '">';
-                                echo $name;
-                                echo '</a>';
-                            } ?>
-
-                        </div>
-                    </div>
-                <?php } ?>
 
 
                 <h1 class="title">
@@ -49,20 +25,41 @@ $post_id = get_the_ID();
                 </div>
 
                 <div class="infos">
+
                     <?php
 
                     $post_author_id = get_post_field('post_author', $post_id);
                     $author = get_userdata($post_author_id);
 
                     ?>
-                    <div class="author">
-                        <p>
+                    <div class="from">
+                        <p class="author">
                             Por
                             <a href="<?= get_author_posts_url($author->ID); ?>">
-
                                 <?= $author->display_name; ?>
                             </a>
                         </p>
+                        <?php
+
+                        $categories = get_the_category();
+
+                        if ($categories) { ?>
+                            <!-- categorias -->
+                            <span class="categories">
+                                -
+                                <?php foreach ($categories as $cat) {
+                                    // var_dump($cat);
+
+                                    $id = $cat->term_id;
+                                    $name = $cat->name;
+                                    $link = get_category_link($id);
+
+                                    echo '<a href="' . $link . '">';
+                                    echo $name;
+                                    echo '</a>';
+                                } ?>
+                            </span>
+                        <?php } ?>
                     </div>
 
                     <?php
@@ -77,7 +74,10 @@ $post_id = get_the_ID();
                             <?= ($date < $modified_date) ? ' - Atualizada em: ' . $modified_date : ''; ?>
                         </p>
                     </div>
+
+
                 </div>
+
 
                 <div class="thumbnail">
 
@@ -111,7 +111,7 @@ $post_id = get_the_ID();
                 if ($tags) { ?>
                     <!-- categorias -->
                     <div class="tags">
-                        <p>Tags</p>
+                        <p>Tags:</p>
 
                         <div class="content">
                             <?php foreach ($tags as $tag) {
