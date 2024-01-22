@@ -8,13 +8,11 @@ get_header();
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
-                <h1>Termo pesquisado: <span><?php echo get_search_query(); ?></span></h1>
+                <h1 class="title">Termo pesquisado: <span><?php echo get_search_query(); ?></span></h1>
 
                 <?php
 
                 if (have_posts()) {
-                    echo '<ul>';
-
                     while (have_posts()) {
                         the_post();
 
@@ -22,20 +20,39 @@ get_header();
 
                         $post_id = get_the_ID();
                         $link = get_the_permalink();
-                        $thumbnail = get_the_post_thumbnail($post_id, 'large-rectangular');
+                        $thumbnail = get_the_post_thumbnail($post_id, 'custom-size');
                         $title = get_the_title($post_id);
                         $excerpt = get_the_excerpt($post_id);
                         $date = get_the_date();
 
-                        echo '<li>';
-                        echo '<a href="' . $link . '">';
+                        $category = get_the_category();
+                        $tags = get_the_tags();
 
-                        echo $title;
+                        $post_author_id = get_post_field('post_author', get_the_ID());
+                        $author = get_the_author_meta('display_name', $post_author_id);
 
-                        echo '</a>';
-                        echo '</li>';
+                        get_template_part('partials/simple-post', null, [
+                            'post_id' => $post_id,
+                            'link' => $link,
+                            'thumbnail' => $thumbnail,
+                            'title' => $title,
+                            'excerpt' => $excerpt,
+                            'category' => $category,
+                            'tag' => $tag,
+                            'date' => $date,
+                            'author' => $author,
+                        ]);
                     }
-                    echo '</ul>';
+
+                    echo '<div class="pagination my-5">';
+
+
+                    echo paginate_links(array(
+                        'prev_text' => '&#129092;',
+                        'next_text' => '&#129094;',
+                    ));
+
+                    echo '</div>';
                 } else { ?>
 
                     <div class="search-not-found">
@@ -46,15 +63,7 @@ get_header();
 
                 <?php } ?>
 
-                <div class="pagination my-5">
-                    <?php
 
-                    echo paginate_links(array(
-                        'prev_text' => 'Anterior',
-                        'next_text' => 'Próxima'
-                    ));
-                    ?>
-                </div>
 
             </div>
         </div>

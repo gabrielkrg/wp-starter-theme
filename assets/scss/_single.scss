@@ -1,7 +1,91 @@
 #single {
+
+    .categories,
+    .tags {
+        display: block;
+        margin-bottom: 20px;
+
+        p {
+            font-weight: 700;
+            font-size: 14px;
+            color: $primary-color;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            a {
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                color: $medium-gray;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .thumbnail {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: $medium-gray;
+        }
+
+        img,
+        picture {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 7px;
+        }
+    }
+
+    .excerpt {
+        margin-bottom: 20px;
+
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+    }
+
+    .infos {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .author,
+        .date {
+            p {
+                font-size: 14px;
+                font-weight: 500;
+                color: $medium-gray;
+
+                a {
+                    text-decoration: none;
+
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+    }
+
     article {
         font-size: 20px;
         line-height: 1.5;
+        margin-bottom: 20px;
 
         // Editor wp config start
         blockquote {
@@ -18,7 +102,7 @@
             display: block;
             font-size: 15px;
             font-weight: 300;
-            color: $medium-gray;
+            color: $white;
         }
 
         .wp-block-video {
@@ -74,7 +158,13 @@
             margin-left: 20px;
 
             li {
-                color: $default-color;
+                // color: $primary-color;
+                color: inherit;
+
+                &::marker {
+                    // color: $primary-color;
+                    color: inherit;
+                }
             }
         }
 

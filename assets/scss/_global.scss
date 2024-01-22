@@ -3,7 +3,6 @@
   margin: 0;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 
 body {
@@ -34,31 +33,135 @@ body {
   z-index: 1;
 }
 
-#side-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 300px;
-  height: 100vh;
-  background-color: $white;
-  z-index: 3;
+a {
+  color: $primary-color;
+}
 
-  ul {
-    li {
-      a {}
+.simple-post {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $light-gray;
+
+  .thumbnail {
+    a {
+      position: relative;
+      text-decoration: none;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 7px;
+      }
+    }
+  }
+
+  .content {
+    .category {
+      display: inline-block;
+      text-decoration: none;
+      margin-bottom: 10px;
+
+      font-weight: 700;
+      font-size: 14px;
+      color: $dark-gray;
+    }
+
+    .title {
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: $default-color;
+
+      font-size: 25px;
+      font-weight: 700;
+      color: $primary-color;
+
+      a {
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: $default-color;
+
+        font-size: 25px;
+        font-weight: 600;
+        color: $primary-color;
+      }
+
+      transition: filter 0.3s ease;
+
+      &:hover {
+
+        filter: brightness(0.7);
+      }
+    }
+
+    .excerpt {
+      margin-bottom: 20px;
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 500;
+      color: $medium-gray;
+
+      a {
+        margin-bottom: 20px;
+        text-decoration: none;
+
+        font-size: 14px;
+        font-weight: 500;
+        color: $medium-gray;
+      }
+
+      transition: filter 0.3s ease;
+
+      &:hover {
+
+        filter: brightness(0.7);
+      }
+    }
+
+    .infos {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .author,
+      .date {
+        font-size: 14px;
+        font-weight: 500;
+        color: $medium-gray;
+      }
+
     }
   }
 }
 
-#search-content {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 500px;
-  width: 100%;
-  z-index: 2;
+
+// pagination
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+
+  .page-numbers {
+    text-decoration: none;
+    color: $default-color;
+    font-weight: 600;
+    font-size: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .next,
+  .prev {
+    color: $white;
+    background-color: $primary-color;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 3px;
+  }
+
+  .current {
+    color: $primary-color;
+  }
+
 }

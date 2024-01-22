@@ -17,7 +17,7 @@ function menuControls() {
             body.classList.remove('overflow-hidden');
             sideMenu.classList.remove('d-block');
             layer.classList.remove('d-block');
-            searchContent.classList.remove('d-block');
+            searchContent.classList.remove('d-flex');
         });
     }
 
@@ -28,7 +28,7 @@ function menuControls() {
                 body.classList.remove('overflow-hidden');
                 sideMenu.classList.remove('d-block');
                 layer.classList.remove('d-block');
-                searchContent.classList.remove('d-block');
+                searchContent.classList.remove('d-flex');
             });
         });
     }
@@ -37,12 +37,7 @@ function menuControls() {
     if (search) {
         search.addEventListener('click', function (e) {
             e.preventDefault();
-
-            console.log(searchContent);
-
-            searchContent.classList.add('d-block');
-            body.classList.add('overflow-hidden');
-            layer.classList.add('d-block');
+            searchContent.classList.toggle('d-flex');
         })
     }
 
@@ -54,7 +49,6 @@ function menuControls() {
             e.preventDefault();
 
             sideMenu.classList.add('d-block');
-
             body.classList.add('overflow-hidden');
             layer.classList.add('d-block');
         })

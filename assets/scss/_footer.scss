@@ -1,12 +1,18 @@
 #footer {
+    border-top: 1px solid $primary-color;
+    padding: 20px 0;
     background-color: $primary-color;
+    color: $white;
 
-    .menu {
+
+
+    ul.menu {
         list-style: none;
 
-        ul {
-            li {
-                a {}
+        li {
+            a {
+                text-decoration: none;
+                color: $white;
             }
         }
     }

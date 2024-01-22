@@ -20,7 +20,7 @@
 				<div class="top">
 					<div class="container">
 						<div class="row justify-content-between">
-							<div class="col-auto">
+							<div class="col-1">
 								<div id="menu">menu</div>
 							</div>
 
@@ -30,7 +30,7 @@
 								</div>
 							</div>
 
-							<div class="col-auto">
+							<div class="col-1">
 								<div id="search">search</div>
 							</div>
 						</div>
@@ -55,6 +55,20 @@
 					</div>
 				</div>
 			</nav>
+
+			<div id="search-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="wrapper">
+								<div id="close">fechar</div>
+								<?php get_search_form(); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</header>
 
 		<div id="side-menu">
@@ -71,8 +85,3 @@
 		</div>
 
 		<div id="layer"></div>
-
-		<div id="search-content">
-			<div id="close">fechar</div>
-			<?php get_search_form(); ?>
-		</div>

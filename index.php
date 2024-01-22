@@ -23,7 +23,6 @@ $showed_posts = [];
 
                 // The Loop
                 if ($query->have_posts()) {
-                    echo '<ul>';
                     while ($query->have_posts()) {
                         $query->the_post();
 
@@ -36,15 +35,24 @@ $showed_posts = [];
                         $excerpt = get_the_excerpt($post_id);
                         $date = get_the_date();
 
-                        echo '<li>';
-                        echo '<a href="' . $link . '">';
+                        $category = get_the_category();
+                        $tags = get_the_tags();
 
-                        echo $title;
+                        $post_author_id = get_post_field('post_author', get_the_ID());
+                        $author = get_the_author_meta('display_name', $post_author_id);
 
-                        echo '</a>';
-                        echo '</li>';
+                        get_template_part('partials/simple-post', null, [
+                            'post_id' => $post_id,
+                            'link' => $link,
+                            'thumbnail' => $thumbnail,
+                            'title' => $title,
+                            'excerpt' => $excerpt,
+                            'category' => $category,
+                            'tag' => $tag,
+                            'date' => $date,
+                            'author' => $author,
+                        ]);
                     }
-                    echo '</ul>';
                 } else {
                     // No posts found                    
                 }
