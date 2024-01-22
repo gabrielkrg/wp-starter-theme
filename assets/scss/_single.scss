@@ -112,9 +112,10 @@
     }
 
     article {
-        font-size: 20px;
-        line-height: 1.6;
-        margin-bottom: 20px;
+        line-height: 1.5;
+        color: $dark-gray;
+        font-size: $content-font-size;
+        font-weight: 400;
 
         // Editor wp config start
         blockquote {
@@ -203,7 +204,7 @@
 
         p.wp-caption-text {
             margin-top: 5px;
-            font-size: 12px;
+            font-size: $small-font-size;
         }
 
         td,
@@ -303,7 +304,7 @@
         }
 
         .gallery .gallery-caption {
-            font-size: 12px;
+            font-size: $small-font-size;
             margin: 4px 0;
         }
 
