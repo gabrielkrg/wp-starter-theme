@@ -8,7 +8,7 @@ get_header();
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
-                <h1 class="title">Termo pesquisado: <span><?php echo get_search_query(); ?></span></h1>
+                <h1 class="main-title">Termo pesquisado: <span><?php echo get_search_query(); ?></span></h1>
 
                 <?php
 

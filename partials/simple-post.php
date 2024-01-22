@@ -31,7 +31,7 @@ $author = $args['author'];
         <div class="col-8">
             <div class="content">
                 <?php if ($category) { ?>
-                    <a href="<?= get_category_link($category); ?>" class="category mb-2">
+                    <a href="<?= get_category_link($category); ?>" class="category">
                         <?= $category->name; ?>
                     </a>
                 <?php } ?>

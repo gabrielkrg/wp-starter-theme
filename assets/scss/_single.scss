@@ -6,8 +6,8 @@
         margin-bottom: 20px;
 
         p {
-            font-weight: 700;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: $small-font-size;
             color: $primary-color;
             margin-bottom: 10px;
         }
@@ -15,8 +15,8 @@
         .content {
             a {
                 text-decoration: none;
-                font-size: 14px;
-                font-weight: 500;
+                font-size: $small-font-size;
+                font-weight: 400;
                 color: $medium-gray;
                 margin-right: 20px;
             }
@@ -24,7 +24,7 @@
     }
 
     .title {
-        font-size: 30px;
+        font-size: $large-font-size;
         margin-bottom: 20px;
     }
 
@@ -36,8 +36,8 @@
 
         p {
             text-align: center;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: $small-font-size;
+            font-weight: 400;
             color: $medium-gray;
         }
 
@@ -56,6 +56,7 @@
         p {
             font-size: 20px;
             line-height: 1.5;
+            color: $medium-gray;
         }
     }
 
@@ -67,14 +68,14 @@
         .author,
         .date {
             p {
-                font-size: 14px;
-                font-weight: 500;
+                font-size: $small-font-size;
+                font-weight: 400;
                 color: $medium-gray;
 
                 a {
                     text-decoration: none;
-
-                    font-size: 14px;
+                    color: $primary-color;
+                    font-size: $small-font-size;
                     font-weight: 600;
                 }
             }
@@ -84,7 +85,7 @@
 
     article {
         font-size: 20px;
-        line-height: 1.5;
+        line-height: 1.6;
         margin-bottom: 20px;
 
         // Editor wp config start
@@ -100,8 +101,8 @@
 
         figcaption {
             display: block;
-            font-size: 15px;
-            font-weight: 300;
+            font-size: $small-font-size;
+            font-weight: 400;
             color: $white;
         }
 
@@ -111,7 +112,7 @@
 
         a {
             color: $primary-color;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         p {
@@ -214,7 +215,7 @@
         }
 
         .wp-caption-dd {
-            font-size: 14px;
+            font-size: $small-font-size;
             padding-top: 0.5em;
             margin: 0;
             /* browser reset */
@@ -274,7 +275,7 @@
         }
 
         .gallery .gallery-caption {
-            font-size: 13px;
+            font-size: 12px;
             margin: 4px 0;
         }
 

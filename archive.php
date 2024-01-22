@@ -17,7 +17,7 @@ $name = $queried_object->name;
     <div class="container">
         <div class="row mb-5">
             <div class="col-12">
-                <h1 class="title">
+                <h1 class="main-title">
                     <?= $name; ?>
                 </h1>
 
