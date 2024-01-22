@@ -2,7 +2,10 @@
 
 get_header();
 
+$showed_posts = [];
+
 $post_id = get_the_ID();
+
 ?>
 
 <section id="single" class="py-4">

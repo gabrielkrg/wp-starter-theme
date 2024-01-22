@@ -28,8 +28,13 @@ $showed_posts = [];
                         $query->the_post();
 
                         $showed_posts[] = get_the_ID();
-                        $title = get_the_title();
+
+                        $post_id = get_the_ID();
                         $link = get_the_permalink();
+                        $thumbnail = get_the_post_thumbnail($post_id, 'custom-size');
+                        $title = get_the_title($post_id);
+                        $excerpt = get_the_excerpt($post_id);
+                        $date = get_the_date();
 
                         echo '<li>';
                         echo '<a href="' . $link . '">';

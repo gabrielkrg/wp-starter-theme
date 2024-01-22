@@ -2,11 +2,14 @@
 
 get_header();
 
+$showed_posts = [];
+
 $author_id = get_the_author_meta('ID');
 
 $author_name = get_the_author_meta('display_name', $author_id);
 $author_description = get_the_author_meta('description', $author_id);
 $author_image = get_avatar($author_id, 100);
+
 ?>
 
 <section id="author" class="py-4">
@@ -24,6 +27,7 @@ $author_image = get_avatar($author_id, 100);
                     'post_type' => 'post',
                     'paged' => $paged,
                     'author' => $author_id,
+                    'post__not_in' => $showed_posts,
                 );
 
                 $query = new WP_Query($args);
@@ -35,8 +39,12 @@ $author_image = get_avatar($author_id, 100);
 
                         $showed_posts[] = get_the_ID();
 
-                        $title = get_the_title();
+                        $post_id = get_the_ID();
                         $link = get_the_permalink();
+                        $thumbnail = get_the_post_thumbnail($post_id, 'custom-size');
+                        $title = get_the_title($post_id);
+                        $excerpt = get_the_excerpt($post_id);
+                        $date = get_the_date();
 
                         echo '<li>';
                         echo '<a href="' . $link . '">';
