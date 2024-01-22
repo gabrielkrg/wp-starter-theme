@@ -1,23 +1,5 @@
 #single {
-    .tags {
-        display: flex;
-
-        p {
-            font-weight: 600;
-            color: $primary-color;
-            margin-bottom: 0;
-            margin-right: 10px;
-        }
-
-        .content {
-            a {
-                text-decoration: none;
-                font-weight: 400;
-                color: $medium-gray;
-                margin-right: 10px;
-            }
-        }
-    }
+    $content-font-size: 20px;
 
     .title {
         // font-size: $large-font-size;
@@ -33,9 +15,10 @@
 
         p {
             text-align: center;
+
+            color: $dark-gray;
             font-size: $small-font-size;
             font-weight: 400;
-            color: $medium-gray;
         }
 
         img,
@@ -51,9 +34,10 @@
         margin-bottom: 20px;
 
         p {
-            font-size: 20px;
             line-height: 1.5;
-            color: $medium-gray;
+            color: $dark-gray;
+            font-size: $content-font-size;
+            font-weight: 400;
         }
     }
 
@@ -66,9 +50,9 @@
 
             .author {
                 margin-right: 10px;
+                color: $dark-gray;
                 font-size: $default-font-size;
                 font-weight: 700;
-                color: $medium-gray;
 
                 a {
                     text-decoration: none;
@@ -80,21 +64,50 @@
             }
 
             .categories {
+                color: $dark-gray;
+                font-size: $default-font-size;
+                font-weight: 500;
+
                 a {
-                    margin-left: 10px;
                     text-decoration: none;
-                    color: $medium-gray;
+                    margin-left: 10px;
+
+                    color: $dark-gray;
+                    font-size: $default-font-size;
+                    font-weight: 500;
                 }
             }
         }
 
         .date {
             p {
-                font-weight: 400;
                 color: $medium-gray;
+                font-size: $small-font-size;
+                font-weight: 400;
             }
         }
 
+    }
+
+    .tags {
+        display: flex;
+
+        p {
+            margin-right: 10px;
+            margin-bottom: 0;
+            color: $primary-color;
+            font-size: $default-font-size;
+            font-weight: 700;
+        }
+
+        .content {
+            a {
+                text-decoration: none;
+                color: $dark-gray;
+                font-size: $default-font-size;
+                font-weight: 500;
+            }
+        }
     }
 
     article {
@@ -115,9 +128,9 @@
 
         figcaption {
             display: block;
+            color: $white;
             font-size: $small-font-size;
             font-weight: 400;
-            color: $white;
         }
 
         .wp-block-video {
@@ -126,7 +139,7 @@
 
         a {
             color: $primary-color;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         p {

@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
   font-family: $font-family;
@@ -67,9 +67,9 @@ a {
       text-decoration: none;
       margin-bottom: 10px;
 
-      font-weight: 600;
-      font-size: $small-font-size;
       color: $dark-gray;
+      font-size: $default-font-size;
+      font-weight: 600;
     }
 
     .title {
@@ -77,9 +77,10 @@ a {
 
       a {
         text-decoration: none;
-        font-size: $medium-font-size;
-        font-weight: 600;
+
         color: $primary-color;
+        font-size: $medium-font-size;
+        font-weight: 800;
       }
 
       transition: filter 0.3s ease;
@@ -97,8 +98,9 @@ a {
         margin-bottom: 20px;
         text-decoration: none;
 
+        color: $dark-gray;
+        font-size: $default-font-size;
         font-weight: 400;
-        color: $medium-gray;
       }
 
       transition: filter 0.3s ease;
@@ -116,9 +118,9 @@ a {
 
       .author,
       .date {
+        color: $medium-gray;
         font-size: $small-font-size;
         font-weight: 400;
-        color: $medium-gray;
       }
 
     }
@@ -134,6 +136,7 @@ a {
   .page-numbers {
     text-decoration: none;
     color: $default-color;
+    font-size: $default-font-size;
     font-weight: 600;
 
     &:last-child {
@@ -145,7 +148,6 @@ a {
   .prev {
     color: $white;
     background-color: $primary-color;
-    font-weight: 600;
     padding: 5px;
     border-radius: 3px;
   }
