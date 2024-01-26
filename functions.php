@@ -9,6 +9,15 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 
 /**
+ * Add title tag to the head
+ */
+add_action('after_setup_theme', 'setup_theme');
+function setup_theme()
+{
+    add_theme_support('title-tag');
+}
+
+/**
  * Thumbnail support
  */
 add_theme_support('post-thumbnails');
