@@ -3,10 +3,14 @@
 // var_dump($args);
 
 $category = $args['category'];
-$category = $category[0];
+if ($category) {
+    $category = $category[0];
+}
 
 $tag = $args['tag'];
-$tag = $tag[0];
+if ($tag) {
+    $tag = $tag[0];
+}
 
 $link = $args['link'];
 $thumbnail = $args['thumbnail'];
