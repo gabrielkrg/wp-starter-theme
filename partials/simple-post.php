@@ -25,9 +25,13 @@ $author = $args['author'];
 <div class="simple-post">
     <div class="row">
         <div class="col-4">
-            <div class="thumbnail">
-                <a href="<?php echo $args['link']; ?>">
-                    <?php echo $args['thumbnail']; ?>
+            <div class="thumbnail-wrapper">
+                <a href="<?= $link; ?>">
+                    <div class="item-content">
+                        <picture>
+                            <?= $thumbnail; ?>
+                        </picture>
+                    </div>
                 </a>
             </div>
         </div>
