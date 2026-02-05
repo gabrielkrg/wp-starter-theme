@@ -13,9 +13,9 @@ $author_avatar = get_avatar($author_id, 100);
 ?>
 
 <section id="author" class="py-4">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col mb-5">
+            <div class="w-full">
                 <h1 class="title">
                     <?= $author_name; ?>
                 </h1>

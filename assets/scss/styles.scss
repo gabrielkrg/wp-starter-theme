@@ -1,14 +1,69 @@
-//Utilities
-@import "bootstrap";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-//Definitions
-@import "vars";
-@import "global";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-//Application
+@layer base {
+  * {
+    @apply p-0 m-0;
+  }
+
+  body {
+    @apply font-sans text-default text-dark-gray leading-normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    @apply text-primary;
+  }
+}
+
+@layer components {
+  .main-title {
+    @apply text-large mb-5;
+  }
+
+  .overflow-hidden {
+    @apply overflow-hidden;
+  }
+
+  #close {
+    @apply cursor-pointer;
+  }
+
+  #layer {
+    @apply fixed top-0 left-0 w-full h-screen hidden z-10;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+  }
+
+  .pagination {
+    @apply mt-8 text-center;
+
+    .page-numbers {
+      @apply no-underline text-dark-gray text-default font-bold;
+
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+
+    .next,
+    .prev {
+      @apply text-white bg-primary px-1 py-1 rounded;
+    }
+
+    .current {
+      @apply text-primary;
+    }
+  }
+}
+
+// Importar outros arquivos SCSS
 @import "header";
 @import "footer";
-
 @import "home";
 @import "single";
 @import "archive";
@@ -16,5 +71,4 @@
 @import "search";
 @import "partials";
 @import "components";
-
 @import "custom";

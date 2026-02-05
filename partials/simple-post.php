@@ -23,8 +23,8 @@ $author = $args['author'];
 
 <!-- post -->
 <div class="simple-post">
-    <div class="row">
-        <div class="col-4">
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/3">
             <div class="thumbnail-wrapper">
                 <a href="<?= $link; ?>">
                     <div class="item-content">
@@ -36,7 +36,7 @@ $author = $args['author'];
             </div>
         </div>
 
-        <div class="col-8">
+        <div class="w-full md:w-2/3">
             <div class="content">
                 <?php if ($category) { ?>
                     <a href="<?= get_category_link($category); ?>" class="category">

@@ -49,50 +49,100 @@ function custom_theme_register_menus()
 }
 
 /**
- * Register custom scripts
+ * Register custom scripts and styles with Vite
  */
-add_action('wp_enqueue_scripts', 'custom_theme_register_scripts');
-function custom_theme_register_scripts()
+add_action('wp_enqueue_scripts', 'custom_theme_register_assets');
+function custom_theme_register_assets()
 {
-    $ver = '1.0';
+    $theme_path = get_template_directory();
+    $theme_uri = get_template_directory_uri();
 
-    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), $ver, array(
-        'in_footer' => true,
-    ));
+    // Check if we're in development mode (Vite dev server running)
+    // You can also set WP_ENV=development or check for a constant
+    $is_dev = defined('WP_ENV') && WP_ENV === 'development';
 
-    // load scripts only on single page
-    if (is_single()) {
+    // Alternative: check if Vite dev server is accessible
+    if (!$is_dev) {
+        $vite_response = @file_get_contents('http://localhost:3000', false, stream_context_create([
+            'http' => ['timeout' => 1]
+        ]));
+        $is_dev = $vite_response !== false;
+    }
 
-        wp_enqueue_script('wpdocs-fancyapps-script', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), $ver, array(
-            'in_footer' => true,
-        ));
+    if ($is_dev) {
+        // Development mode - load from Vite dev server
+        wp_enqueue_script(
+            'vite-client',
+            'http://localhost:3000/@vite/client',
+            array(),
+            null,
+            false
+        );
 
         wp_enqueue_script(
-            'fancy-gallery',
-            get_template_directory_uri() . '/js/fancy-gallery.js',
-            array('jquery'),
-            $ver,
-            array(
-                'in_footer' => true,
-                'strategy' => 'defer'
-            )
+            'theme-main',
+            'http://localhost:3000/assets/js/main.js',
+            array(),
+            null,
+            true
         );
-    }
-}
 
-/**
- * Register custom styles
- */
-add_action('wp_enqueue_scripts', 'custom_theme_register_styles');
-function custom_theme_register_styles()
-{
-    $ver = '1.0';
+        wp_enqueue_style(
+            'theme-styles',
+            'http://localhost:3000/assets/scss/styles.scss',
+            array(),
+            null
+        );
+    } else {
+        // Production mode - load from dist folder
+        $manifest_path = $theme_path . '/dist/.vite/manifest.json';
 
-    wp_enqueue_style('custom-styles', get_template_directory_uri() . '/css/styles.min.css', array(), $ver);
+        if (file_exists($manifest_path)) {
+            $manifest = json_decode(file_get_contents($manifest_path), true);
 
-    // load scripts only on single page
-    if (is_single()) {
-        wp_enqueue_style('wpdocs-fancyapps-style', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css', array(), $ver);
+            // Load main JS
+            $main_js_key = 'assets/js/main.js';
+            if (isset($manifest[$main_js_key])) {
+                $main_js = $manifest[$main_js_key];
+                wp_enqueue_script(
+                    'theme-main',
+                    $theme_uri . '/dist/' . $main_js['file'],
+                    isset($main_js['imports']) ? array_map(function ($imp) use ($manifest, $theme_uri) {
+                        return $theme_uri . '/dist/' . $manifest[$imp]['file'];
+                    }, $main_js['imports']) : array(),
+                    null,
+                    true
+                );
+            }
+
+            // Load main CSS
+            $main_css_key = 'assets/scss/styles.scss';
+            if (isset($manifest[$main_css_key])) {
+                $main_css = $manifest[$main_css_key];
+                wp_enqueue_style(
+                    'theme-styles',
+                    $theme_uri . '/dist/' . $main_css['file'],
+                    array(),
+                    null
+                );
+            }
+        } else {
+            // Fallback if manifest doesn't exist
+            wp_enqueue_script(
+                'theme-main',
+                $theme_uri . '/dist/js/main.js',
+                array(),
+                '1.0',
+                true
+            );
+
+            wp_enqueue_style(
+                'theme-styles',
+                $theme_uri . '/dist/css/styles.css',
+                array(),
+                '1.0'
+            );
+        }
     }
 }
 

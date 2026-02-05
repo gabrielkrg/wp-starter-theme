@@ -6,9 +6,9 @@ $showed_posts = [];
 
 ?>
 <section id="home" class="py-4">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-12">                
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col mb-5">
+            <div class="w-full">
                 <?php
 
                 // The Query

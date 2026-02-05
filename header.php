@@ -17,19 +17,19 @@
 			<nav id="navbar">
 
 				<div class="top">
-					<div class="container">
-						<div class="row justify-content-between">
-							<div class="col-1">
+					<div class="container mx-auto px-4">
+						<div class="flex justify-between items-center">
+							<div class="w-1/12">
 								<div id="menu">menu</div>
 							</div>
 
-							<div class="col-auto">
+							<div class="flex-auto">
 								<div id="logo">
 									<a href="<?= get_site_url(); ?>">logo</a>
 								</div>
 							</div>
 
-							<div class="col-1">
+							<div class="w-1/12">
 								<div id="search">search</div>
 							</div>
 						</div>
@@ -37,9 +37,9 @@
 				</div>
 
 				<div class="bottom">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
+					<div class="container mx-auto px-4">
+						<div class="flex">
+							<div class="w-full">
 								<?php
 
 								$args = [
@@ -55,10 +55,10 @@
 				</div>
 			</nav>
 
-			<div id="search-content">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
+			<div id="search-content" class="hidden">
+				<div class="container mx-auto px-4">
+					<div class="flex">
+						<div class="w-full">
 							<div class="wrapper">
 								<div id="close">fechar</div>
 								<?php get_search_form(); ?>
@@ -70,7 +70,7 @@
 			</div>
 		</header>
 
-		<div id="side-menu">
+		<div id="side-menu" class="hidden">
 			<div id="close">fechar</div>
 			<?php
 
@@ -83,4 +83,4 @@
 			?>
 		</div>
 
-		<div id="layer"></div>
+		<div id="layer" class="hidden"></div>

@@ -9,9 +9,9 @@ $post_id = get_the_ID();
 ?>
 
 <section id="single" class="py-4">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-9">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-center mb-5">
+            <div class="w-full md:w-3/4">
 
 
 
@@ -87,13 +87,11 @@ $post_id = get_the_ID();
                     $thumbnail_mobile = get_the_post_thumbnail_url($post_id, 'custom-size');
                     ?>
 
-                    <a href="<?= get_the_post_thumbnail_url($post_id); ?>" data-fancybox>
-                        <picture>
-                            <source media="(min-width: 1200px)" srcset="<?= $thumbnail_desktop; ?>">
-                            <source media="(min-width: 600px)" srcset="<?= $thumbnail_mobile; ?>">
-                            <?= $thumbnail; ?>
-                        </picture>
-                    </a>
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="<?= $thumbnail_desktop; ?>">
+                        <source media="(min-width: 600px)" srcset="<?= $thumbnail_mobile; ?>">
+                        <?= $thumbnail; ?>
+                    </picture>
 
                     <p><?= get_the_post_thumbnail_caption(); ?></p>
                 </div>
